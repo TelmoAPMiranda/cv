@@ -1,0 +1,26 @@
+{
+    "basics": {
+        "name": "Telmo Miranda",
+        "label": "Full-stack Developer",
+        "image": "",
+        "summary": "I'm a full-stack web developer who can build apps from the ground up. I've worked mostly at startups so I am used to wearing many hats. I am a very product focussed developer who priotizes user feedback first and foremost. I'm generally very flexible when investigating new roles. ",
+        "url": "https://cv.TelmoAPMiranda.net",
+        "email": "telmoapmiranda@hotmail.com",
+        "location": {
+          "city": "Portugal",
+          "countryCode": "PT"
+        },
+        "profiles": [
+          {
+            "url": "https://www.linkedin.com/in/telmoapmiranda",
+            "username": "telmoapmiranda",
+            "network": "twitter"
+          },
+          {
+            "url": "https://github.com/telmoapmiranda",
+            "username": "telmoapmiranda",
+            "network": "linkedin"
+          }
+        ]
+      }
+}

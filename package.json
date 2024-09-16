@@ -1,0 +1,22 @@
+{
+  "name": "cv",
+  "version": "1.0.0",
+  "description": "cv",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TelmoAPMiranda/cv.git"
+  },
+  "scripts": {
+    "export-html": "rm -rf generated && mkdir -p generated && chmod o+rw generated && resume export --resume cv.json generated/cv.html --theme kendall",
+    "serve": "resume serve"
+  },
+  "keywords": [
+    "cv"
+  ],
+  "author": "Telmo Miranda feat Nuno Rodrigues",
+  "homepage": "https://github.com/TelmoAPMiranda/cv#readme",
+  "dependencies": {
+    "jsonresume-theme-kendall": "^0.2.0",
+    "resume-cli": "3.1.2"
+  }
+}

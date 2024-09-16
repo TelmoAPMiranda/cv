@@ -1,0 +1,16 @@
+{
+    "name": "Node",
+    "build": {
+      "dockerfile": "../Dockerfile",
+      "context": ".."
+    },
+    "containerEnv": {},
+    "extensions": [
+      "editorconfig.editorconfig",
+      "ms-azuretools.vscode-docker",
+      "redhat.vscode-yaml",
+      "esbenp.prettier-vscode",
+      "dbaeumer.vscode-eslint"
+    ],
+    "settings": {}
+  }
