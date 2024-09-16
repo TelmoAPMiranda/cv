@@ -7,7 +7,8 @@
     "url": "git+https://github.com/TelmoAPMiranda/cv.git"
   },
   "scripts": {
-    "export-html": "rm -rf generated && mkdir -p generated && chmod o+rw generated && resume export --resume cv.json generated/cv.html --theme kendall",
+    "export-html": "rm -rf generated && mkdir -p generated && chmod o+rw generated && resume export --resume cv.json generated/index.html --theme kendall",
+    "prepare-github-pages": "mkdir -p github-pages && cp -rn generated/. github-pages/",
     "serve": "resume serve"
   },
   "keywords": [

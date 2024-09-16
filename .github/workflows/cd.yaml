@@ -1,0 +1,26 @@
+name: ContinousDelivery
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    concurrency: ci-${{ github.ref }}
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: npm install 
+        run: npm install
+      - name: export cv to html
+        run: npm run export-html
+      - name: prepare github-pages folder
+        run: npm run prepare-github-pages
+      - name: Deploy github pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: github-pages
+          folder: github-pages
