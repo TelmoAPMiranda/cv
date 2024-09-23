@@ -2,7 +2,8 @@
     "name": "Node",
     "build": {
       "dockerfile": "../Dockerfile",
-      "context": ".."
+      "context": "..",
+      "target": "dev-container"
     },
     "containerEnv": {},
     "extensions": [

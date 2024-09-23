@@ -1,0 +1,20 @@
+basics:
+  name: Telmo Miranda
+  label: Full-stack Senior Developer
+  image: https://avatars0.githubusercontent.com/u/17736247?s=460&u=38f220a2c9c658141804f881c334c594eb1642ac&v=4
+  summary: 
+    With a degree in Computer Science Engineering, I have been working in the IT industry since 2008, gaining extensive programming experience, particularly in Microsoft technologies and data warehouse solutions.
+    I have contributed to projects across a variety of sectors, with a strong focus on banking and finance. My involvement in the full project development lifecycle—from requirements analysis and specification to solution design, development, testing, and rollout—has helped me cultivate a well-rounded skill set that balances both technical expertise and soft skills.
+    I am a proactive team player with strong adaptability and a continuous eagerness to learn.
+  url: https://cv.TelmoAPMiranda.net
+  email: TelmoAPMiranda@hotmail.com
+  location:
+    city: Portugal
+    countryCode: PT
+  profiles:
+    - url: https://www.linkedin.com/in/telmoapmiranda
+      username: TelmoAPMiranda
+      network: Linkedin
+    - url: https://github.com/telmoapmiranda
+      username: TelmoAPMiranda
+      network: Github
