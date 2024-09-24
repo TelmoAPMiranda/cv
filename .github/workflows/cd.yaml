@@ -5,7 +5,28 @@ on:
     branches:
       - main
 
+env:
+  DOCKER_BUILDKIT: 1
+  USE_CONTAINER_CACHE: true
+  CI_CONTAINER_REGISTRY: ghcr.io
+  CI_CONTAINER_IMAGE_NAME: ghcr.io/telmoapmiranda/cv/ci
+
 jobs:
+  cache-ci-container-image:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: docker login
+        continue-on-error: true
+        run: (echo ${{ secrets.GITHUB_TOKEN }} | docker login ${CI_CONTAINER_REGISTRY} -u ${GITHUB_ACTOR} --password-stdin)
+      - name: docker build
+        run: make container run="echo 'image built'"
+      - name: docker push
+        continue-on-error: true
+        run: docker push $CI_CONTAINER_IMAGE_NAME
+
   deploy:
     runs-on: ubuntu-latest
     concurrency: ci-${{ github.ref }}
@@ -13,12 +34,11 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
-      - name: npm install 
-        run: npm install
-      - name: export cv to html
-        run: make generate-html
+      - name: docker login
+        continue-on-error: true
+        run: (echo ${{ secrets.GITHUB_TOKEN }} | docker login ${CI_CONTAINER_REGISTRY} -u ${GITHUB_ACTOR} --password-stdin)
       - name: spell check
-        run: make spell-check
+        run: make container run="make clean spell-check"
       - name: prepare github-pages folder
         run: make prepare-github-pages
       - name: Deploy github pages
