@@ -24,7 +24,7 @@ generate-html: clean
 	npm install
 	npm run export-html
 
-# make prepare-github-pages # Prepare the gh-pages folder to be deployed. This will copy the generated CV to the gh-pages folder making sure the HTML file is renamed to "index.html". Note that this command expects the contents of the `generated` folder to already be generated.
+# make prepare-github-pages # Prepare the github-pages folder to be deployed. This will copy the generated CV to the github-pages folder. Note that this command expects the contents of the `generated` folder to already be generated.
 .PHONY: prepare-github-pages
 prepare-github-pages:
 	mkdir -p github-pages
@@ -38,3 +38,13 @@ spell-check: generate-html
 	rm generated/index.tidy.html && \
 	(([[ $${SPELL_CHECK_RESULT} == "" ]] && echo "No spelling errors found.") || \
 	(echo -e "Spelling errors found:\n\n$${SPELL_CHECK_RESULT}\n" && exit 1))
+
+# make spell-check-readme # Spell check the README.md file.
+.PHONY: spell-check-readme
+spell-check-readme:
+	hunspell -d en_US -l -H -p spell-check-exclude.dic README.md
+
+# make format-spell-check-exclude-file # Format the spell-check-exclude.dic file used to exclude spell checker errors. This will sort and remove duplicate lines from the file.
+.PHONY: format-spell-check-exclude-file
+format-spell-check-exclude-file:
+	SPELL_CHECK_FORMAT_RESULT=$$(cat spell-check-exclude.dic | egrep . | sort | uniq) && echo "$${SPELL_CHECK_FORMAT_RESULT}" > spell-check-exclude.dic

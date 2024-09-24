@@ -16,9 +16,11 @@ jobs:
       - name: npm install 
         run: npm install
       - name: export cv to html
-        run: npm run export-html
+        run: make generate-html
+      - name: spell check
+        run: make spell-check
       - name: prepare github-pages folder
-        run: npm run prepare-github-pages
+        run: make prepare-github-pages
       - name: Deploy github pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
