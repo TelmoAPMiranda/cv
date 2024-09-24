@@ -30,6 +30,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     concurrency: ci-${{ github.ref }}
+    needs: cache-ci-container-image
     permissions:
       contents: write
     steps:
