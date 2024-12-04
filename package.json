@@ -8,6 +8,7 @@
   },
   "scripts": {
     "export-html": "resume export --resume cv.yaml generated/index.html --theme kendall",
+    "export-pdf": "resume export --resume cv.yaml generated/resume.pdf --theme kendall",
     "serve": "resume serve"
   },
   "keywords": [
